@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+
+<style>
+
+body {background-color:#FC6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+
+</style>
+</head>
+
+<script>
+	//Question #1 - Populates school name on the page when ran.
+	function schoolName(){
+		var schoolName = "DMACC";
+		document.getElementById('school').innerText = schoolName;
+	}
+	//Question #2 - Populates the course name on the page when ran.
+	function courseName(){
+		var courseName = "WDV 221 Intro Javascript";
+		var check = courseName.includes("WDV");
+		var count = courseName.length;
+		var upper = courseName.toUpperCase();
+		document.getElementById('course').innerText = upper + " || " + "Length of characters: " + count + " || " + "Does it include WDV: " + check;
+	}
+	//Question #3 - Populates a numerical value for a test score, set at 100.00.
+	function testScore(){
+		var testScore = 100.00;
+		document.getElementById('test').innerText = testScore;
+	}
+	//Question #4 - Numerical variable left blank intentionally for the course grade variable.
+	function courseGrade(){
+		var courseGrade;
+		document.getElementById('grade').innerText = courseGrade;
+	}
+	//Question #5 - Populates a boolean value based on the variable given.
+	function courseCompleted(){
+		var courseCompleted = false;
+		document.getElementById('completed').innerText = courseCompleted;
+	}
+	function start(){
+		schoolName();
+		courseName();
+		testScore();
+		courseGrade();
+		courseCompleted();
+	}
+</script>
+<body onload="start()">
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit-2 - Variables Assignment</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment.</p>
+<p>Submt this assignment on Blackboard. Please include a link to your homework page.</p>
+<h3>For each exercise use a comment line to put the Exercise number within the script. Also place a short description of what the script is doing.</h3>
+<hr />
+<p>1. Define a String variable called schoolName and assign it a value of DMACC.</p>
+	<h3 id="school"></h3>
+<p>2. Define a String variable called courseName and assign it a value of WDV221 Intro Javascript</p>
+	<h3 id="course"></h3>
+<p>3. Define a Numeric variable called testScore and assign it a value of 100.00. </p>
+	<h3 id="test"></h3>
+<p>4. Define a Numeric variable called courseGrade. Do not give it a value.</p>
+	<h3 id="grade"></h3>
+<p>5. Define a Boolean variable called courseCompleted. Give it a value of false.</p>
+	<h3 id="completed"></h3>
+<p>Display the value of all the variables in their own paragraphs below. </p>
+<p>Display the number of characters in the course name.</p>
+<p>Display the course name as all uppercase letters.</p>
+<p>Using the String Object determine if the course name contains the letters WDV?  Look at the String methods. Does one or more of them look inside the variable for specific content?</p>
+</body>
+</html>
