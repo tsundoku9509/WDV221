@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Function Introduction Assignment</title>
+
+<style>
+
+body {background-color:#d9eff6;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+
+</style>
+</head>
+<script>
+	//global variable including my name
+	let name = "Austin Mays";
+	//function to send a runtime alert to the browser window displaying my name.
+	function sayHello(){
+		alert(name);
+	};
+	//function to print my name twice to page.
+	function printHello(){
+		document.write(name + " " + name);
+		var msg = document.createElement("H1");
+		var populate = document.createTextNode(name);
+		msg.appendChild(populate);
+		document.body.appendChild(msg);
+	};
+	//function to populate a button upon runtime to click for the characterCount function to run.
+	function addBtn(){
+		var btn = document.createElement("button");
+		btn.id = "btnClick";
+		btn.textContent = "Click me to insert your name!";
+		document.body.appendChild(btn);
+		btn.addEventListener("click", function(){
+			characterCount();
+		});
+	};
+	//function to prompt user to insert name and get an alert back about their name and the number of characters in their name.
+	function characterCount(){
+		var testString;
+		let userData = prompt("What is your name?", "Type name here!");
+		testString = userData;
+		var len = userData.length;
+		alert("Your name is: " + testString + " || and the character count is: " + len);
+	};
+	//function to run the three runtime functions simultaneously. 
+	function start(){
+		sayHello();
+		printHello();
+		addBtn();
+	};
+</script>
+<body onload="start()">
+<button onclick="characterCount()">Click here to insert your name!</button>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit-3 - Functions </h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment.</p>
+<p>Submit this assignment on Blackboard. Please include a link to your homework page.</p>
+<hr />
+
+<p>
+Use Javascript to complete the following tasks.
+<ol>
+<li> Create a global variable and assign it with a string of your name</li>
+<li> Create a function called sayHello( ).  The function will use the alert( ) function to display your name.  Call it during runtime.</li>
+<li>Create a function called printHello( ). The function will use the document.write( ) function to display your name.  Call it twice in a row during runtime.</li>
+<li> Call the printHello( ) function so that it prints your name inside of an h1 element. </li>
+<li> Create a function called characterCount( ).
+	<ol>
+		<li>Create a local variable called testString.</li>
+		<li>Use the prompt( ) to ask for a string.  Store the result in the testString variable.</li>
+		<li>Use the String.length property to get the number of characters in the variable.</li>
+		<li>Display the results using an alert( ).</li>
+		<li>Call this function using an event handler such as onclick.</li>
+	</ol>
+	</li>
+
+
+</body>
+</html>
