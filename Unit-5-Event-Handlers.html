@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="mirth.css">
+
+<script>
+    function showDate(){
+        const date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+
+        let currentDate = `${day}-${month}-${year}`;
+        alert(currentDate);
+    }
+    let currentSize = 20;
+
+    function expandTextSize(){
+        var text = document.getElementById("hidden");
+        text.style.fontSize = (currentSize + 20) + "px";
+    }
+    function fontChange(){
+        var text = document.getElementById("font");
+        text.style.fontFamily = "Courier";
+    }
+    function yourSelect(){
+        var x = document.getElementById("selection").value;
+        document.getElementById("sci-fi").innerHTML = "You selected: " + x;
+    }
+    function welcomeIn(){
+        alert("Hello, and welcome to my site!");
+    }
+</script>
+
+
+</head>
+
+<body onload="welcomeIn()">
+
+    <h1>On Click Event</h1>
+    <button onclick="showDate()">Click for Current Date!</button>
+    <h1>Mouse Over Event</h1>
+    <p id="hidden" onmouseover="expandTextSize()">Text visible on mouse hover.</p>
+    <h1>Mouse Out Event</h1>
+    <h3 id="font" onmouseout="fontChange()">Reveal this text!</h3>
+    <h1>On Change Event</h1>
+    <select id="selection" onchange="yourSelect()">
+        <option value="Star Wars">Star Wars</option>
+        <option value="Star Trek">Star Trek</option>
+        <option value="Battlestar Galactica">Battlestar Galactica</option>
+        <option value="I don't like Sci-Fi">I don't like Sci-Fi</option>
+    </select>
+    <p id="sci-fi"></p>
+</body>
+</html>
