@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
+
+<style>
+
+body {background-color:#d5c2c2;
+}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+
+</style>
+
+
+<script>
+	var count = 0;
+ function numSubmit(event) {
+  /*This script displays the input of the first and second values in the Form, while manipulating it via multiplication, addition, 
+  and a change in the increment of count. */
+    event.preventDefault();
+    const action = event.submitter.value;
+    const val01 = document.getElementById("num01").value;
+    const val02 = document.getElementById("num02").value;
+    let valX = val01 * val02;
+    let valAdd = val01 + val02;
+    if (action === "First") {
+      document.getElementById("num01Paste").value = val01;
+    } else if (action === "Second") {
+      document.getElementById("num02Paste").value = val02;
+    } else if (action === "Multiply") {
+      document.getElementById("numX").value = valX;
+    } else if (action === "Add"){
+      document.getElementById("numAdd").value = valAdd;
+    }else if (action === "Increment count"){
+      cnt = ++count;
+      document.getElementById("increaseCount").value = cnt;
+    }
+  }
+
+  
+</script>
+
+
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Unit-6 Operators and Textfields - Assignment</h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<h3>Instructions</h3>
+<p>Use the form fields for the input values. For each of the following exercises create a function what will be activated by the button. Do not forget our discussion on button types. </p>
+<form name="form1" method="post" action="" onsubmit="numSubmit(event)">
+  <p>Enter a number for value1:
+    <input type="text" id="num01"/>
+  </p>
+  <p>Enter a number for value 2:
+    <input type="text" id="num02"/>
+  </p>
+  <p id="num01">1.
+    <input type="submit" value="First" />
+    Display the value you entered for value1:
+  <input type="text" id="num01Paste" readonly/>
+  </p>
+  <p id="num02">2.
+    <input type="submit" value="Second" />
+    Dislplay the value you entered for value2:
+  <input type="text" id="num02Paste" readonly/>
+  </p>
+  <p>3.
+    <input type="submit" value="Multiply" />
+    Display the value of value1 * value2:
+  <input type="text" id="numX"/>
+  </p>
+  <p>4.
+    <input type="submit" value="Add" />
+    Display the results of value1 + value2 in the following textfield.
+  <input type="text" id="numAdd"/>;
+  </p>
+  <p>5.
+    <input type="submit" value="Increment count" />
+    Use the increment operator to add 1 to count and display the new value of count.
+  <input type="text" id="increaseCount"/>
+  </p>
+  <p>
+    <input type="reset" name="Reset" id="button" value="Reset">
+  </p>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>
