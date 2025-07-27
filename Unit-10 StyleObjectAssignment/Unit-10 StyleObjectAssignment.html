@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Style Object-CSS Interactions In Class Exercises</title>
+<style type="text/css">
+
+.style1 {color: #FF0000;}
+.center {text-align: center;}
+.left {text-align: left;}
+.font-change {font-family: "Courier", monospace;}
+.font-sizing {font-size: 24px;}
+.text-coloring {background-color: yellow;}
+.brder {border: 10px solid black; padding: 5px;}
+.grn {background-color: green;}
+</style>
+
+<script>
+
+  //Function gets the color style from CSS class element to change paragraph color on click.
+  function colorRed(){
+    document.getElementById("text").classList.add("style1");
+  };
+  //Function gets the text align center element from CSS and changes the H3 element in HTML to this.
+  function centerText(){
+    document.getElementById("h3").classList.add("center");
+  };
+  //Function gets the text align left element in CSS to change the H3 element in HTML.
+
+  function leftText(){
+    document.getElementById("h3").classList.add("left");
+  }
+  function submitLogic(event){
+    event.preventDefault();
+    leftText();
+
+  }
+  document.addEventListener("DOMContentLoaded", function(){
+      const submitBtn = document.getElementById("button");
+      submitBtn.addEventListener("click", submitLogic);
+  });
+
+  //Function to change the font of the HTML page.
+
+  function fontChange(){
+    document.getElementById("text").classList.add("font-change");
+  };
+
+  //Function to change font back to default.
+  function fontRevert(){
+    document.getElementById("text").classList.remove("font-change");
+  }
+
+  //Function to change SALE to font size 24.
+
+  function sizeUp(){
+    document.getElementById("changing").classList.add("font-sizing");
+  }
+
+  function submitLogic2(event){
+    event.preventDefault();
+    sizeUp();
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const submitBtn = document.getElementById("button2");
+    submitBtn.addEventListener("click", submitLogic2);
+  });
+
+  //Function to change the font size of SALE back to default.
+
+  function sizeDown() {
+      document.getElementById("changing").classList.remove("font-sizing");
+    }
+  function submitLogic3(event){
+    event.preventDefault();
+    sizeDown();
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+      const submitBtn = document.getElementById("button3");
+      submitBtn.addEventListener("click", submitLogic3);
+    });
+  
+  //Function to change the paragraph background color to Yellow.
+
+  function yellowFlip(){
+    document.getElementById("yellow").classList.add("text-coloring");
+  }
+
+  //Function to hide the frog image on page.
+
+  function frogOut(){
+    document.getElementById("frogger").style.display = "none";
+  }
+
+  //Function to reshow the frog.
+
+  function frogIn(){
+    document.getElementById("frogger").style.display = "block";
+  }
+  function submitLogic4(event) {
+      event.preventDefault();
+      frogIn();
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const submitBtn = document.getElementById("button4");
+      submitBtn.addEventListener("click", submitLogic4);
+    });
+  
+  //Function to double the size of the frog image through Mouseover, returning to size via Click. 
+  //Answers Questions 11 and 12
+
+  document.addEventListener('DOMContentLoaded', function () {
+      const frogger = document.getElementById('frogger');
+      if (!frogger) return;
+
+      const wdth = frogger.width;
+      const hgth = frogger.height;
+
+      frogger.addEventListener('mouseover', () => {
+        frogger.style.width = (wdth * 2) + 'px';
+        frogger.style.height = (hgth * 2) + 'px';
+      });
+
+      frogger.addEventListener('click', () => {
+        frogger.style.width = wdth + 'px';
+        frogger.style.height = hgth + 'px';
+      });
+    });
+  //Function to put a border around a paragraph in the page.
+  function dblClick(){
+    document.getElementById("dblClick").classList.add("brder");
+  }
+  //Function to remove said border above around a paragraph in the page.
+  function dblClickRevert(){
+    document.getElementById("dblClick").classList.remove("brder");
+  }
+  //Function to turn the background color of a paragraph green and back to not green.
+  document.addEventListener('DOMContentLoaded', function () {
+      const para = document.getElementById('para');
+      if (!para) return;
+
+
+      para.addEventListener('mouseover', () => {
+        para.classList.add("grn");
+      });
+
+      para.addEventListener('mouseleave', () => {
+        para.classList.remove("grn");
+      });
+    });
+    //Function to put a b
+</script>
+</head>
+
+<body id="text">
+<h1>WDV221 Intro Javascript</h1>
+<h3 id="h3">Style Object - CSS Interactions - In Class Exercises</h3>
+<p>Please modify this page to create the following Dynamic HMTL effects. </p>
+<p onclick="colorRed();">1. Click this paragraph to change the font color to red.</p>
+<p onmouseover="centerText();">2. Mousever this paragraph to center the H3 element containing &quot;CSS Interactions&quot;.</p>
+<p>3. Click the button to left align the H3 element. </p>
+<p>
+  <label>
+  <input type="submit" name="button" id="button" value="Submit" onsubmit="leftText();"/>
+  </label>
+</p>
+<p onmouseover="fontChange();">4. Mouseover this paragraph to change the font to a font of you choice. </p>
+<p onclick="fontRevert();">5. Click on this paragraph to return the font to the default font.</p>
+<p>6. Click on the button to make the word <span id="changing">SALE</span> font size 24. </p>
+<p>
+  <label>
+  <input type="submit" name="button2" id="button2" value="Submit" />
+  </label>
+</p>
+<p>7. Click on the button to return the word to its original size.</p>
+<p>
+  <label>
+    <input type="submit" name="button3" id="button3" value="Submit" />
+  </label>
+</p>
+<p id = "yellow" onclick="yellowFlip();">8. Use an eventhandler of your choice on this paragraph to make the paragraph background color yellow. </p>
+<p onclick="frogOut();">9. Use an onclick event to hide the Frog image shown below.</p>
+<p>10. Use the following button to make the Frog image shown below reappear.</p>
+<p>
+  <input type="submit" name="button4" id="button4" value="Submit" />
+</p>
+<p>11. Mouseover the Frong image to make its height and width double its original size. </p>
+<p><img src="frog.jpg" id="frogger" width="100" height="100" /></p>
+<p>12. Use a click event on the Frog image to make it return to original size. </p>
+<p id="dblClick" ondblclick="dblClick();">13. Doubleclick on this paragraph to place a border around this paragraph.</p>
+<p onmouseover="dblClickRevert();">14. Use an event handler of your choice to remove the border from the previous paragraph. </p>
+<p id="para">15. Mouseover this paragraph to turn its background color to green. When you mouseoff the paragraph return it to its normal color. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
