@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript</title>
+
+<script>
+
+	
+	
+</script>
+
+
+
+</head>
+
+<body>
+<h1>WDV221 Intro Javascript</h1>
+<h2>Skill Test - Loops and Arrays</h2>
+<form name="form1" method="post" action="">
+  <fieldset>
+  	<label>1. Which product did you purchase?
+  	  <select name="selectProduct" id="selectProduct">
+      </select>
+      <br>
+      <br>
+      2. Please choose the primary factor in why you purchased our product:<br>
+      <br>
+  	3. How did your hear about us? Please select all that apply:<br>
+  	<input type="submit" name="button" id="button" value="Submit">
+  	<input type="reset" name="button2" id="button2" value="Reset">
+  	<br>
+  	</label>
+  	<legend>Your Input Matters</legend>
+  </fieldset>
+</form>
+
+<h2>4. Special Item Offer!</h2>
+<script>
+	//Note: The specialItem is a JSON String. Convert to JSON object literal
+	//	then display each key value pair in a paragraph.
+
+	var products = ["Garden Trowel", "Yard Spade", "Planting Spade"];
+		var productNumber = ["gt200", "yard-1", "plant-4"];
+
+		var selectionFactors = ["Price", "Quality", "Reviews", "Pictures"];
+
+		var references = ["Field and Stream", "Home and Garden", "Plant Life"];
+	var specialItem = '{"itemName":"Magic Beans", "price":10.00, "inventoryCount":1, "isDiscontinued":true}';
+	const selectProduct = document.getElementById("selectProduct");
+	for (let i = 0; i < products.length; i++) {
+		let option = document.createElement("option");
+		option.text = products[i];
+		option.value = productNumber[i];
+		selectProduct.appendChild(option);
+	}
+
+	const fieldset = document.querySelector("fieldset");
+	const radioDiv = document.createElement("div");
+	for (let i = 0; i < selectionFactors.length; i++) {
+		let label = document.createElement("label");
+		let radio = document.createElement("input");
+		radio.type = "radio";
+		radio.name = "purchaseFactor";
+		radio.value = selectionFactors[i];
+		label.appendChild(radio);
+		label.appendChild(document.createTextNode(selectionFactors[i]));
+		radioDiv.appendChild(label);
+		radioDiv.appendChild(document.createElement("br"));
+	}
+
+	fieldset.insertBefore(checkboxDiv, fieldset.children[8]);
+
+	const checkboxDiv = document.createElement("div");
+	const specialItemObj = JSON.parse(specialItem);
+	const offerSection = document.querySelector("h2 + script");
+	const offerOutput = document.createElement("div");
+	offerOutput.innerHTML = `<p>Item Name: ${specialItemObj.itemName}</P>
+							<p>Price: ${specialItemObj.price}</p>
+							<p>Count: ${specialItemObj.inventoryCount}</p>
+							<p>Limited Time Offer: ${specialItemObj.isDiscontinued}</P>
+						`;
+	offerSection.parentNode.insertBefore(offerOutput, offerSection.nextSibling);
+
+
+	
+	/* Output should look like the following. 
+			Item Name: Magic Beans
+			Price: $10
+			Count: 1
+			Limited Time Offer: true
+			
+		Note: For this assignment I am not expecting the currnecy library
+			(You can use do "$" + data for the output)
+	*/
+	
+
+	
+	
+</script>
+
+<h3>Instructions:</h3>
+<p>1. Use the products array and the productNumber array to dynamically populate the select menu. Include the productNumbers as value atttributes.</p>
+<p>2. Use the selectionFactors array to dynamically create a set of radio buttons. </p>
+<p>3. Use the references array to dynamically create a set of check boxes. </p>
+<p>4. Convert the specialItem JSON String to a JSON Object and then display the data under the "4. Special Item Offer!" header.</p>
+</body>
+</html>
